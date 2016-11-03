@@ -1,0 +1,24 @@
+{
+  "name": "hapi-response-time",
+  "version": "0.1.0",
+  "description": "Response Time plugin for HapiJS",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pankajpatel/hapi-response-time.git"
+  },
+  "keywords": [
+    "hapi",
+    "http",
+    "header"
+  ],
+  "author": "Pankaj Patel <patel.pankaj@live.in> (http://pankaj.pro)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/pankajpatel/hapi-response-time/issues"
+  },
+  "homepage": "https://github.com/pankajpatel/hapi-response-time#readme"
+}
