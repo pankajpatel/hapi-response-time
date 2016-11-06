@@ -3,11 +3,7 @@ var server = new Hapi.Server();
 
 server.connection({port: 3000}); // tell hapi which TCP Port to "listen" on
 server.register({
-  register: require('../index'),
-  options: {
-    method : 'GET',
-    path : ''
-  }
+  register: require('../index')
 });
 
 server.route({
