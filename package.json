@@ -4,7 +4,7 @@
   "description": "Response Time plugin for HapiJS",
   "main": "index.js",
   "scripts": {
-    "test": "lab"
+    "test": "lab -c"
   },
   "repository": {
     "type": "git",
