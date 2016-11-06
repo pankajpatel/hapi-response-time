@@ -4,7 +4,7 @@
   "description": "Response Time plugin for HapiJS",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "lab"
   },
   "repository": {
     "type": "git",
@@ -20,5 +20,10 @@
   "bugs": {
     "url": "https://github.com/pankajpatel/hapi-response-time/issues"
   },
-  "homepage": "https://github.com/pankajpatel/hapi-response-time#readme"
+  "homepage": "https://github.com/pankajpatel/hapi-response-time#readme",
+  "devDependencies": {
+    "code": "^4.0.0",
+    "hapi": "^15.2.0",
+    "lab": "^11.1.0"
+  }
 }

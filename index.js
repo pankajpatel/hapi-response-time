@@ -1,4 +1,4 @@
-var package = require('./package')
+var package = require('./package');
 
 var Plugin = {};
 Plugin.register = function(server, options, next) {
@@ -21,19 +21,19 @@ Plugin.register = function(server, options, next) {
           var end = (new Date()).getTime();
           reply(res)
             .header('x-req-start', start)
-            .header('x-res-end', end);
+            .header('x-res-end', end)
             .header('x-response-time', end - start);
         }
       }
     }
   });
+
+  next();
 };
 
 Plugin.register.attributes = {
-  name : pachage.name,
+  name : package.name,
   version : package.version
 };
+
 module.exports = Plugin;
-
-
-
