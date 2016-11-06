@@ -14,8 +14,4 @@ server.route({
   }
 });
 
-server.start(function () { // start the Hapi server on your localhost
-  console.log('Now Visit: http://localhost:' + server.info.port + '/john');
-});
-
 module.exports = server;
