@@ -1,6 +1,6 @@
 {
   "name": "hapi-response-time",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "Response Time plugin for HapiJS",
   "main": "index.js",
   "scripts": {

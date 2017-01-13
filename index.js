@@ -7,10 +7,12 @@ Plugin.register = function(server, options, next) {
   server.ext('onPreResponse', function (request, reply) {
       var start = parseInt(request.headers['x-req-start']);
       var end = (new Date()).getTime();
-      request.response
+      if(!request.response.isBoom){
+        request.response
         .header('x-req-start', start)
         .header('x-res-end', end)
         .header('x-response-time', end - start)
+      }
       return reply.continue();
     });
   next();
