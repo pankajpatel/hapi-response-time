@@ -8,7 +8,8 @@ This plugin will add following headers to each request. And the time represented
 ```
 x-req-start →1484305451729
 x-res-end →1484305451738
-x-response-time →9```
+x-response-time →9
+```
 
 
 - `x-req-time`: The time on which request is received on server
@@ -19,7 +20,8 @@ To use this plugin:
 
 - Install
 ```sh
-npm i -S hapi-response-time```
+npm i -S hapi-response-time
+```
 
 - and register it with the hapi's `server` instance:
 ```js
@@ -28,13 +30,15 @@ server.register(require('hapi-response-time'), (err)=> {
       throw err;
 
     }
-})```
+})
+```
 
 Example:
 
 ```sh
 npm i -S hapi hapi-response-time
 ```
+
 ```js
 var Hapi = require('hapi');
 var server = new Hapi.Server();
@@ -64,4 +68,5 @@ server.route([
       }, 10000);
     }
   }
-]);```
+]);
+```
