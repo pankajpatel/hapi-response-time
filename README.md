@@ -1,4 +1,7 @@
 # hapi-response-time
+
+![hapi-response-time](https://cloud.githubusercontent.com/assets/251937/26471448/0c5f3268-41a2-11e7-850a-cbe109e18f12.png)
+
 Response Time Plugin for HapiJS
 
 This plugin will add following headers to each request. And the time represented is in the UNIX/Epoch time.
