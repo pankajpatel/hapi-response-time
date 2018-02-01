@@ -28,12 +28,7 @@ npm i -S hapi-response-time
 
 - and register it with the hapi's `server` instance:
 ```js
-server.register(require('hapi-response-time'), (err)=> {
-    if(err) {
-      throw err;
-
-    }
-})
+await server.register(require('hapi-response-time'));
 ```
 
 Example:
@@ -44,31 +39,25 @@ npm i -S hapi hapi-response-time
 
 ```js
 var Hapi = require('hapi');
-var server = new Hapi.Server();
-
-server.connection({
+var server = new Hapi.Server({
   port: process.env.PORT || 3000
 });
-server.register(require('hapi-response-time'), (err) => {
-  if(err) {
-    throw err;
-  }
-})
+
+await server.register(require('hapi-response-time'));
 
 server.route([
   {
     method: 'GET',
     path: '/john',
-    handler: function(req, reply) {
-      reply('Hello John!');
+    handler: function(req, h) {
+      return h.response('Hello John!');
     }
   },{
     method: 'GET',
     path: '/timeout',
-    handler: function (request, reply) {
-      setTimeout(function() {
-        reply('Response after 10 seconds')
-      }, 10000);
+    handler: async function (request, h) {
+      await (() => { return new Promise(resolve => setTimeout(resolve, 10000)); })();
+      return h.response('Response after 10 seconds');
     }
   }
 ]);

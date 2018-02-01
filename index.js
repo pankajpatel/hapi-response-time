@@ -1,10 +1,14 @@
-var Plugin = {};
-Plugin.register = function(server, options, next) {
-  server.ext('onRequest', function (request, reply) {
+'use strict';
+
+const Package = require('./package');
+
+let Plugin = {};
+Plugin.register = (server, options) => {
+  server.ext('onRequest', (request, h) => {
       request.headers['x-req-start'] = (new Date()).getTime();
-      return reply.continue();
+      return h.continue;
     });
-  server.ext('onPreResponse', function (request, reply) {
+  server.ext('onPreResponse', (request, h) => {
       var start = parseInt(request.headers['x-req-start']);
       var end = (new Date()).getTime();
       if(!request.response.isBoom){
@@ -13,13 +17,11 @@ Plugin.register = function(server, options, next) {
         .header('x-res-end', end)
         .header('x-response-time', end - start)
       }
-      return reply.continue();
+      return h.continue;
     });
-  next();
 };
 
-Plugin.register.attributes = {
-  pkg: require('./package')
-};
+Plugin.name = Package.name;
+Plugin.version = Package.version;
 
 module.exports = Plugin;
