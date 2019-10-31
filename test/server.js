@@ -2,7 +2,7 @@
 
 const Hapi = require('hapi');
 
-const server = new Hapi.Server({ port: 3000 }); // tell hapi which TCP Port to "listen" on
+const server = Hapi.server({ port: 3000 });
 
 (async () => {
   try {
@@ -27,7 +27,7 @@ const server = new Hapi.Server({ port: 3000 }); // tell hapi which TCP Port to "
     );
   } catch (error) {
     console.log(error);
-	process.exit(1);
+	  process.exit(1);
   }
 })();
 

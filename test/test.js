@@ -1,6 +1,6 @@
-var Lab = require("lab");           // load Lab module
-var lab = exports.lab = Lab.script(); //export test script
-var Code = require("code");      //assertion library
+var Lab = require("lab");
+var lab = exports.lab = Lab.script();
+var Code = require("code");
 var server = require("./server");
 
 lab.experiment("Header Tests", async () => {
@@ -12,10 +12,18 @@ lab.experiment("Header Tests", async () => {
     };
     // server.inject lets you simulate an http request
     const response = await server.inject(options);
-    Code.expect(response.headers['x-req-start']).to.be.a.number();  //  Expect header x-req-start to be a number
-    Code.expect(response.headers['x-res-end']).to.be.a.number();  //  Expect header x-res-end to be a number
-    Code.expect(response.headers['x-response-time']).to.be.a.number();  //  Expect header x-response-time to be a number
-    Code.expect(response.result).to.have.length(11); // Expect result to be "Hello John!" (11 chars long)
+    const headers = response.headers;
+    //  Expect header x-req-start to be a number
+    Code.expect(headers['x-req-start']).to.be.a.number();
+
+    //  Expect header x-res-end to be a number
+    Code.expect(headers['x-res-end']).to.be.a.number();
+
+    //  Expect header x-response-time to be a number
+    Code.expect(headers['x-response-time']).to.be.a.number();
+
+    // Expect result to be "Hello John!" (11 chars long)
+    Code.expect(response.result).to.have.length(11);
   });
 
   lab.test("GET /timeout should have responsi time more than 1 sec", async () => {
@@ -25,10 +33,11 @@ lab.experiment("Header Tests", async () => {
     };
 
     const response = await server.inject(options);
-    Code.expect(response.headers['x-req-start']).to.be.a.number();
-    Code.expect(response.headers['x-res-end']).to.be.a.number();
-    Code.expect(response.headers['x-response-time']).to.be.a.number();
-    Code.expect(response.headers['x-response-time']).to.be.at.least(1000);
+    const headers = response.headers;
+    Code.expect(headers['x-req-start']).to.be.a.number();
+    Code.expect(headers['x-res-end']).to.be.a.number();
+    Code.expect(headers['x-response-time']).to.be.a.number();
+    Code.expect(headers['x-response-time']).to.be.at.least(1000);
     Code.expect(response.result).to.have.length(23);
   });
 });
