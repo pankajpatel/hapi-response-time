@@ -1,34 +1,32 @@
 'use strict';
 
-const Hapi = require('hapi');
+const Hapi = require('@hapi/hapi');
 
-const server = Hapi.server({ port: 3000 });
+const server = Hapi.server();
 
-(async () => {
-  try {
-    await server.register({
-      plugin: require('../index')
-    });
+try {
+  server.register({
+    plugin: require('../index')
+  });
 
-    server.route([{
-      method: 'GET',        // define the method this route will handle
-      path: '/john', // this is how you capture route parameters in Hapi
-      handler: function(req, h) { // request handler method
-      return h.response('Hello John!'); // reply with text.
-      }
-    },{
-      method: 'GET',
-      path: '/timeout',
-      handler: async function (request, h) {
-      await (() => { return new Promise(resolve => setTimeout(resolve, 1000)); })();
+  server.route([{
+    method: 'GET',
+    path: '/john',
+    handler: (req, h) => h.response('Hello John!'),
+  }, {
+    method: 'GET',
+    path: '/timeout',
+    handler: async function (request, h) {
+      await (() => {
+        return new Promise(resolve => setTimeout(resolve, 1000));
+      })();
       return h.response('Response after 1 second');
-      }
-    }]
-    );
-  } catch (error) {
-    console.log(error);
-	  process.exit(1);
-  }
-})();
+    }
+  }]
+  );
+} catch (error) {
+  console.log(error);
+  process.exit(1);
+}
 
 module.exports = server;
