@@ -1,6 +1,6 @@
 var Lab = require("@hapi/lab");
 var lab = exports.lab = Lab.script();
-var Code = require("code");
+var Code = require("@hapi/code");
 
 lab.experiment("Header Tests", async () => {
   var server = require("./server");
