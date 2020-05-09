@@ -16,7 +16,6 @@ x-res-end → 1484305451738
 x-response-time → 9
 ```
 
-
 - `x-req-time`: The time on which request is received on server
 - `x-res-end`: The time before sending the response
 - `x-response-time`: The difference between above two, i.e. the time taken by server to process the request before sending the response
@@ -84,3 +83,5 @@ process.on('unhandledRejection', (err) => {
 
 init();
 ```
+
+You can read the intro Post here: [https://time2hack.com/introducing-hapi-response-time/](https://time2hack.com/introducing-hapi-response-time/)
