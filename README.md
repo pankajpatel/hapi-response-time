@@ -1,6 +1,6 @@
 # hapi-response-time
 
-[![Build Status](https://travis-ci.com/pankajpatel/hapi-response-time.svg?branch=master)](https://travis-ci.com/pankajpatel/hapi-response-time)
+![tests](https://github.com/pankajpatel/hapi-response-time/workflows/tests/badge.svg)
 
 <img src="https://cloud.githubusercontent.com/assets/251937/26471448/0c5f3268-41a2-11e7-850a-cbe109e18f12.png" alt="hapi-response-time" height="150" align="right" style="float:right">
 
