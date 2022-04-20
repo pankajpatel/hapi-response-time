@@ -2,7 +2,7 @@ var Lab = require("@hapi/lab");
 var lab = exports.lab = Lab.script();
 var Code = require("@hapi/code");
 
-lab.experiment("Header Tests", async () => {
+lab.experiment("Header Tests", () => {
     var server = require("./server");
     lab.test("GET /john should have time Headers", async () => {
         console.log('\nCase: GET /john should have time Headers')
