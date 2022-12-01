@@ -23,7 +23,7 @@
     "homepage": "https://github.com/pankajpatel/hapi-response-time#readme",
     "devDependencies": {
         "@hapi/code": "^9.0.1",
-        "@hapi/hapi": "^20.0.0",
+        "@hapi/hapi": "^21.1.0",
         "@hapi/lab": "^25.0.1"
     }
 }
